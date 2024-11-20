@@ -125,6 +125,4 @@ Td = population(best, 3);
 C = Kp * (1 + Ti/s + Td*s);
 Go = C*G;
 Gc = Go / (1 + Go);
-figure(1)
-grid on
 step(Gc);
