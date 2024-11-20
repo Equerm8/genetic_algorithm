@@ -1,12 +1,3 @@
-%% Ten kod należy sprowadzić do pętli:
-% Genotyp osobnika +: [Kp Ti Td]
-% Populacja początkowa <-
-% Ocena                 |
-% Selekcja              | TO W PĘTLI for i = 1:1:...
-% Krzyzowanie           |
-% Populacja Potomna    --
-% + ELITARYZM
-
 %% object - first-order inertial object with delay
 K = 1.1;
 T1 = 3.5;
@@ -29,7 +20,7 @@ for iteration = 1:20
     end
 
     %% getting roulette probabillity 
-    roulette_probabillity = get_roulette_probability(J);
+    roulette_probabillity = get_roulette_probability(J, N);
 
     %% conversion of doubles to strings for crossbreeding
     [cols, rows] = size(population);
