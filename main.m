@@ -28,12 +28,8 @@ for iteration = 1:20
     mult = 100;
     for i = 1:cols
         [KpDouble, TiDouble, TdDouble] = deal(population(i, 1), population(i, 2), population(i, 3));
-        if KpDouble ~= -1
-            [KpBin, TiBin, TdBin] = dec2binFunc(KpDouble, TiDouble, TdDouble, mult);
-            [populationBin(i, 1), populationBin(i, 2), populationBin(i, 3)] = deal(KpBin, TiBin, TdBin);
-        else
-            populationBin(i, 1:3) = [-1 -1 -1];
-        end
+        [KpBin, TiBin, TdBin] = dec2binFunc(KpDouble, TiDouble, TdDouble, mult);
+        [populationBin(i, 1), populationBin(i, 2), populationBin(i, 3)] = deal(KpBin, TiBin, TdBin);
     end
 
     %% elitarism + crossbreeding + mutation + inversion
@@ -93,7 +89,7 @@ for iteration = 1:20
 
         % inversion
         if is_inversion
-            [individual_1, individual_2] = mutation(individual_1, individual_2, inversion_probabillity);
+            [individual_1, individual_2] = inversion(individual_1, individual_2, inversion_probabillity);
         end
 
         new_population(new_index, :) = individual_1;
