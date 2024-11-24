@@ -94,12 +94,18 @@ for iteration = 1:20
 
         new_population(new_index, :) = individual_1;
         new_index = new_index + 1;
-        if new_index > N 
+        if new_index > N
+            for i = 1:cols
+                population(i, :) = bin2dec(new_population(i, :)) / mult;
+            end
             break 
         end
         new_population(new_index, :) = individual_2;
         new_index = new_index + 1;
         if new_index > N 
+            for i = 1:cols
+                population(i, :) = bin2dec(new_population(i, :)) / mult;
+            end
             break 
         end
     end
